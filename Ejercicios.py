@@ -1,18 +1,21 @@
-# Escriba un programa que reciba como entrada un numero entre n,y entregue como salida el n-enesimo numero de fibonacci
+# Escriba un programa que reciba como entrada un numero entero e indique si es o no un numero de Fibonacci
 
-def fibonacci_n(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        a, b = 0, 1
-        for _ in range(2, n + 1):
-            a, b = b, a + b
-        return b
+num = int(input("Por favor ingrese un número: "))
 
-# Entrada del usuario
-n = int(input("Ingrese n: "))
-print(f"F{n} = {fibonacci_n(n)}")
+a = 0
+b = 1
+es_fibo = False
 
+while a <= num:
+    if a == num:
+        es_fibo = True
+        break
+    c = a + b
+    a = b
+    b = c
+
+if es_fibo:
+    print(f"{num} es número de Fibonacci")
+else:
+    print(f"{num} no es número de Fibonacci")
 
