@@ -1,21 +1,21 @@
-# Escriba un programa que reciba como entrada un numero entero e indique si es o no un numero de Fibonacci
+# Escriba un programa que muestre los m primeros numeros de Fibonacci,donde m es un numero ingresado por el usuario:
 
-num = int(input("Por favor ingrese un número: "))
+m = int(input("Por favor inngrese m: "))
 
 a = 0
 b = 1
-es_fibo = False
 
-while a <= num:
-    if a == num:
-        es_fibo = True
-        break
+if m >= 1:
+    print(a, end=" ")
+if m >= 2:
+    print(b, end=" ")
+
+for i in range(2, m):
     c = a + b
+    print(c, end=" ")
     a = b
     b = c
 
-if es_fibo:
-    print(f"{num} es número de Fibonacci")
-else:
-    print(f"{num} no es número de Fibonacci")
+print()
+
 
