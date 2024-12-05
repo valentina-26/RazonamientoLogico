@@ -1,13 +1,19 @@
+#encontrar el número mínimo de días que Kelly necesita para resolver más problemas que Sam
+def minNum():
+    samDaily = int(input("Enter the number of problems Sam solves per day: "))
+    kellyDaily = int(input("Enter the number of problems Kelly solves per day: "))
+    difference = int(input("Enter the difference between the problems solved by Sam and Kelly: "))
+    
+    days = 0
+    sam_problems = 0
+    kelly_problems = 0
+    
+    while kelly_problems <= sam_problems:
+        sam_problems += samDaily
+        kelly_problems += kellyDaily
+        days += 1
+    
+    return days
 
-multiplicador = int(input("Por favor ingrese el multiplicador: "))
-multiplicando = int(input("Por favor ingrese el multiplicando: "))
 
-resultado = 0
-while multiplicador > 1:
-    if multiplicador % 2 != 0:
-        resultado += multiplicando
-    multiplicando *= 2
-    multiplicador //= 2
-
-resultado += multiplicando
-print(f"El resultado es: {resultado}")
+print(f"The minimum number of days is: {minNum()}")
