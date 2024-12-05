@@ -1,19 +1,37 @@
-#encontrar el número mínimo de días que Kelly necesita para resolver más problemas que Sam
-def minNum():
-    samDaily = int(input("Enter the number of problems Sam solves per day: "))
-    kellyDaily = int(input("Enter the number of problems Kelly solves per day: "))
-    difference = int(input("Enter the difference between the problems solved by Sam and Kelly: "))
+def findLongestSubsequence(arr):
+    n = len(arr)
     
-    days = 0
-    sam_problems = 0
-    kelly_problems = 0
+    # Sort the array in ascending order
+    arr.sort()
     
-    while kelly_problems <= sam_problems:
-        sam_problems += samDaily
-        kelly_problems += kellyDaily
-        days += 1
+
+    max_length = 0
     
-    return days
+    # Iterate through the array
+    for i in range(n):
+        current_length = 1
+        
+
+        sum_diff = 0
+        
+        # Iterate through the remaining elements
+        for j in range(i + 1, n):
+            # Calculate the difference between adjacent elements
+            diff = arr[j] - arr[j - 1]
+            
+            # If the sum of differences is even, increment the current length
+            if (sum_diff + diff) % 2 == 0:
+                current_length += 1
+                sum_diff += diff
+        
+        # Update the maximum length if the current length is greater
+        max_length = max(max_length, current_length)
+    
+    return max_length
 
 
-print(f"The minimum number of days is: {minNum()}")
+arr = input("Enter the array of integers (separated by spaces): ").split()
+arr = [int(x) for x in arr]
+
+
+print(f"The length of the longest valid subsequence is: {findLongestSubsequence(arr)}")
